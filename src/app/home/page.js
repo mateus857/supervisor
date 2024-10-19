@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <SidebarComponent /> {/* Renderizando a sidebar aqui */}
-      <div className="flex-1 ml-64 py-10"> {/* Adicionei ml-64 para margem lateral */}
+      <div className="flex-1 ml-50 py-10"> {/* Adicionei ml-64 para margem lateral */}
 
         <div class="px-4 mx-auto max-w-screen-2xl lg:px-12">
 

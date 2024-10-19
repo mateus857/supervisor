@@ -31,7 +31,7 @@ export default function SidebarComponent() {
     };
 
     return (
-        <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <Card className="fixed h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
             <div className="mb-2 p-4">
                 <Typography variant="h5" color="blue-gray">
                     Unity Sistemas
@@ -64,29 +64,39 @@ export default function SidebarComponent() {
                                 <PresentationChartBarIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             <Typography color="blue-gray" className="mr-auto font-normal">
-                                Dashboard
+                                Cadastros
                             </Typography>
                         </AccordionHeader>
                     </ListItem>
                     <AccordionBody className="py-1">
                         <List className="p-0">
+
+                        <Link href="/cadastros/produtos" passHref>
                             <ListItem>
                                 <ListItemPrefix>
                                     <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                 </ListItemPrefix>
-                                Analytics
+                                Produtos
+                            </ListItem>
+                            </Link>
+
+                            <ListItem>
+                                <ListItemPrefix>
+                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                </ListItemPrefix>
+                                Entidades
                             </ListItem>
                             <ListItem>
                                 <ListItemPrefix>
                                     <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                 </ListItemPrefix>
-                                Reporting
+                                Grupo Usuários
                             </ListItem>
                             <ListItem>
                                 <ListItemPrefix>
                                     <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                 </ListItemPrefix>
-                                Projects
+                                Usuários
                             </ListItem>
                         </List>
                     </AccordionBody>
