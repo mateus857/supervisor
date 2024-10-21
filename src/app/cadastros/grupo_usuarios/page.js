@@ -15,54 +15,34 @@ import {
  
 const TABLE_HEAD = [
   {
-    head: "Number",
+    head: "Código",
     icon: <Checkbox />,
   },
   {
-    head: "Customer",
-  },
-  {
-    head: "Amount",
-  },
-  {
-    head: "Issued",
-  },
-  {
-    head: "Payment Date",
+    head: "Descrição",
   },
   {
     head: "",
   },
+
 ];
  
 const TABLE_ROWS = [
   {
-    number: "#MS-415646",
-    customer: "Viking Burrito",
-    amount: "$14,000",
-    issued: "31 Jan 2024",
-    date: "31 Feb 2024",
+    codigo: "#MS-415646",
+    descricao: "Viking Burrito",
   },
   {
-    number: "#RV-126749",
-    customer: "Stone Tech Zone",
-    amount: "$3,000",
-    issued: "24 Jan 2024",
-    date: "24 Feb 2024",
+    codigo: "#RV-126749",
+    descricao: "Stone Tech Zone",
   },
   {
-    number: "#QW-103578",
-    customer: "Fiber Notion",
-    amount: "$20,000",
-    issued: "12 Jan 2024",
-    date: "12 Feb 2024",
+    codigo: "#QW-103578",
+    descricao: "Fiber Notion",
   },
   {
-    number: "#MS-415688",
-    customer: "Blue Bird",
-    amount: "$5,600",
-    issued: "10 Jan 2024",
-    date: "10 Feb 2024",
+    codigo: "#MS-415688",
+    descricao: "Blue Bird",
   },
 ];
  
@@ -120,12 +100,12 @@ export default function GrupoUsuarios() {
                 </thead>
                 <tbody>
                   {TABLE_ROWS.map(
-                    ({ number, customer, amount, issued, date }, index) => {
+                    ({ codigo, descricao}, index) => {
                       const isLast = index === TABLE_ROWS.length - 1;
                       const classes = isLast ? "p-4" : "p-4 border-b border-gray-300";
 
                       return (
-                        <tr key={number}>
+                        <tr key={codigo}>
                           <td className={classes}>
                             <div className="flex items-center gap-1">
                               <Checkbox />
@@ -134,7 +114,7 @@ export default function GrupoUsuarios() {
                                 color="blue-gray"
                                 className="font-bold"
                               >
-                                {number}
+                                {codigo}
                               </Typography>
                             </div>
                           </td>
@@ -143,31 +123,7 @@ export default function GrupoUsuarios() {
                               variant="small"
                               className="font-normal text-gray-600"
                             >
-                              {customer}
-                            </Typography>
-                          </td>
-                          <td className={classes}>
-                            <Typography
-                              variant="small"
-                              className="font-normal text-gray-600"
-                            >
-                              {amount}
-                            </Typography>
-                          </td>
-                          <td className={classes}>
-                            <Typography
-                              variant="small"
-                              className="font-normal text-gray-600"
-                            >
-                              {issued}
-                            </Typography>
-                          </td>
-                          <td className={classes}>
-                            <Typography
-                              variant="small"
-                              className="font-normal text-gray-600"
-                            >
-                              {date}
+                              {descricao}
                             </Typography>
                           </td>
                           <td className={classes}>
