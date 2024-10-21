@@ -65,9 +65,9 @@ export default function UsuariosPage() {
         <header className="px-4 mx-auto max-w-screen-2xl lg:px-12 mb-8">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <main className="p-4">
-              <h1 className="text-2xl font-bold">Cadastro de Grupo Usuários</h1>
+              <h1 className="text-2xl font-bold">Cadastro de usuários</h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Gerencie e visualize os grupos de usuários cadastrados no sistema.
+                Gerencie e visualize os usuários cadastrados no sistema.
               </p>
             </main>
           </div>
