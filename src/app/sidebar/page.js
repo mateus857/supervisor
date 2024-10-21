@@ -1,5 +1,5 @@
 "use client"
-import Link from "next/link"; 
+import Link from "next/link";
 import React from "react";
 import {
     Card,
@@ -21,7 +21,17 @@ import {
     InboxIcon,
     PowerIcon,
 } from "@heroicons/react/24/solid";
-import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+    HomeIcon, // Para Home
+    UserGroupIcon, // Para Cadastros (Grupo Usuários)
+    UsersIcon, // Para Usuários
+    DocumentIcon, // Para Relatórios
+    CogIcon, // Para Configurações
+    ExclamationCircleIcon, // Para Processos
+    LogoutIcon, // Para Log Out
+    ChevronRightIcon,
+    ChevronDownIcon
+} from "@heroicons/react/24/outline";
 
 export default function SidebarComponent() {
     const [open, setOpen] = React.useState(0);
@@ -31,7 +41,7 @@ export default function SidebarComponent() {
     };
 
     return (
-        <Card className="fixed h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <Card className="fixed h-[calc(100vh-2rem)] w-full max-w-[17rem] p-4 shadow-xl shadow-blue-gray-900/5">
             <div className="mb-2 p-4">
                 <Typography variant="h5" color="blue-gray">
                     Unity Sistemas
@@ -47,21 +57,21 @@ export default function SidebarComponent() {
                         />
                     }
                 >
-                <Link href="/home" passHref>
-                    <ListItem>
-                        <ListItemPrefix>
-                            <InboxIcon className="h-5 w-5" />
-                        </ListItemPrefix>
-                        Home
-                        <ListItemSuffix>
-                            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-                        </ListItemSuffix>
-                    </ListItem>
-                </Link>
+                    <Link href="/home" passHref>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <HomeIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Home
+                            <ListItemSuffix>
+                                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                            </ListItemSuffix>
+                        </ListItem>
+                    </Link>
                     <ListItem className="p-0" selected={open === 1}>
                         <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                             <ListItemPrefix>
-                                <PresentationChartBarIcon className="h-5 w-5" />
+                                <UserGroupIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             <Typography color="blue-gray" className="mr-auto font-normal">
                                 Cadastros
@@ -71,33 +81,38 @@ export default function SidebarComponent() {
                     <AccordionBody className="py-1">
                         <List className="p-0">
 
-                        <Link href="/cadastros/produtos" passHref>
-                            <ListItem>
-                                <ListItemPrefix>
-                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                                </ListItemPrefix>
-                                Produtos
-                            </ListItem>
+                            <Link href="/cadastros/produtos" passHref>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Produtos
+                                </ListItem>
                             </Link>
-
-                            <ListItem>
-                                <ListItemPrefix>
-                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                                </ListItemPrefix>
-                                Entidades
-                            </ListItem>
-                            <ListItem>
-                                <ListItemPrefix>
-                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                                </ListItemPrefix>
-                                Grupo Usuários
-                            </ListItem>
-                            <ListItem>
-                                <ListItemPrefix>
-                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                                </ListItemPrefix>
-                                Usuários
-                            </ListItem>
+                            <Link href="/cadastros/entidades" passHref>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Entidades
+                                </ListItem>
+                            </Link>
+                            <Link href="/cadastros/grupo_usuarios" passHref>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Grupo Usuários
+                                </ListItem>
+                            </Link>
+                            <Link href="/cadastros/usuarios" passHref>
+                                <ListItem>
+                                    <ListItemPrefix>
+                                        <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                    </ListItemPrefix>
+                                    Usuários
+                                </ListItem>
+                            </Link>
                         </List>
                     </AccordionBody>
                 </Accordion>
@@ -110,13 +125,29 @@ export default function SidebarComponent() {
                         />
                     }
                 >
+                    <Link href="/processos" passHref>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <ExclamationCircleIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Processos
+                        </ListItem>
+                    </Link>
+                    <Link href="/relatorios" passHref>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <DocumentIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Relatórios
+                        </ListItem>
+                    </Link>
                     <ListItem className="p-0" selected={open === 2}>
                         <AccordionHeader onClick={() => handleOpen(2)} className="border-b-0 p-3">
                             <ListItemPrefix>
-                                <ShoppingBagIcon className="h-5 w-5" />
+                                <CogIcon className="h-5 w-5" />
                             </ListItemPrefix>
                             <Typography color="blue-gray" className="mr-auto font-normal">
-                                E-Commerce
+                                Parâmetros
                             </Typography>
                         </AccordionHeader>
                     </ListItem>
@@ -126,36 +157,31 @@ export default function SidebarComponent() {
                                 <ListItemPrefix>
                                     <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                 </ListItemPrefix>
-                                Orders
+                                Configuração Geral
                             </ListItem>
                             <ListItem>
                                 <ListItemPrefix>
                                     <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                 </ListItemPrefix>
-                                Products
+                                Configuração Empresa
+                            </ListItem>
+                            <ListItem>
+                                <ListItemPrefix>
+                                    <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                                </ListItemPrefix>
+                                Processa Excepcionais
                             </ListItem>
                         </List>
                     </AccordionBody>
                 </Accordion>
-
-                <ListItem>
-                    <ListItemPrefix>
-                        <UserCircleIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Profile
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <Cog6ToothIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Settings
-                </ListItem>
+                <Link href="/" passHref>
                 <ListItem>
                     <ListItemPrefix>
                         <PowerIcon className="h-5 w-5" />
                     </ListItemPrefix>
                     Log Out
                 </ListItem>
+                </Link>
             </List>
         </Card>
     );

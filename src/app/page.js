@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter(); // Inicializando o router
 
   const acessarSistema = () => {
-    router.push("/sidebar"); // Redireciona para a página do sistema
+    router.push("/home"); // Redireciona para a página do sistema
   };
 
   return (
