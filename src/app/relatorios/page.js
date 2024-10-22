@@ -42,8 +42,8 @@ export default function RelatoriosPage() {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <SidebarComponent />
-      <div className="flex-1 ml-64 py-10">
-        <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
+      <div className="flex-1 py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+      <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <div className="flex flex-col justify-center w-full py-8">
               <div className="px-4 mx-auto max-w-screen-lg lg:px-8">

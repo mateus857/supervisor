@@ -52,8 +52,8 @@ export default function GrupoUsuarios() {
       <SidebarComponent />
       {/* <div className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5"> */}
 
-      <div className="flex-1 ml-64 py-8">
-        <header className="px-4 mx-auto max-w-screen-2xl lg:px-12 mb-8">
+      <div className="flex-1 py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+      <header className="px-4 mx-auto max-w-screen-2xl lg:px-12 mb-8">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <main className="p-4">
               <h1 className="text-2xl font-bold">Cadastro de Grupo Usuários</h1>
