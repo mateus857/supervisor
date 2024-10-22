@@ -108,12 +108,12 @@ const TABLE_ROWS = [
 
 export default function ProdutosPage() {
   return (
-<div className="relative overflow-x-auto bg-gray-50 min-h-screen flex-col items-center justify-center">
-<SidebarComponent />
+    <div className="relative overflow-x-auto bg-gray-50 min-h-screen flex-col items-center justify-center">
+      <SidebarComponent />
       {/* <div className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5"> */}
 
-      <div className="flex-1 py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-      <header className="px-4 mx-auto max-w-screen-2xl lg:px-12 mb-8">
+      <div className="flex-1 py- px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+        <header className="px-4 mx-auto max-w-screen-2xl lg:px-12 mb-8">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <main className="p-4">
               <h1 className="text-2xl font-bold">Cadastro de Produtos</h1>
@@ -127,37 +127,39 @@ export default function ProdutosPage() {
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <Card className="h-full w-full overflow-scroll">
-              <CardHeader
-                floated={false}
-                shadow={false}
-                className="mb-2 rounded-none p-2"
-              >
-                       <div className="w-full md:w-auto">
-                  <Input
-                    label="Search"
-                    icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-                  />
-                  <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-center md:space-x-3">
+              <CardHeader floated={false} shadow={false} className="mb-4 rounded-none p-4">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+                  {/* Input de Search */}
+                  <div className="w-full md:w-1/4">
+                    <Input
+                      label="Search"
+                      icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+                      className="w-full"
+                    />
+                  </div>
+
+                  {/* Botões de Ação */}
+                  <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-3 w-full md:w-auto">
                     <button
                       type="button"
-                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-primary-500 block w-full px-4 py-2.5 flex items-center"
+                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray text-sm rounded-lg focus:ring-2 focus:ring-primary-500 w-full px-4 py-2 flex items-center justify-center"
                     >
                       <DocumentIcon className="w-5 h-5 mr-2" />
                       Novo
                     </button>
                     <button
-                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-primary-500 block w-full px-4 py-2.5 flex items-center"
+                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray text-sm rounded-lg focus:ring-2 focus:ring-primary-500 w-full px-4 py-2 flex items-center justify-center"
                     >
                       <ArrowDownTrayIcon className="w-5 h-5 mr-2" />
                       Ordenar
                     </button>
                     <button
                       id="filterDropdownButton"
-                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-primary-500 block w-full px-4 py-2.5 flex items-center"
+                      className="bg-primary-600 border border-gray-300 hover:bg-primary-700 text-gray text-sm rounded-lg focus:ring-2 focus:ring-primary-500 w-full px-4 py-2 flex items-center justify-center"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 mr-2"
+                        className="h-5 w-5 mr-2"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
