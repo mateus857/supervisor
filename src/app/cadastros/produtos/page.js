@@ -127,7 +127,7 @@ export default function ProdutosPage() {
         <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
           <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <Card className="h-full w-full overflow-scroll">
-              <CardHeader floated={false} shadow={false} className="mb-4 rounded-none p-4">
+              <CardHeader floated={false} shadow={false} className="mb-4 rounded-none p-0">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-3">
                   {/* Input de Search */}
                   <div className="w-full md:w-1/4">
@@ -178,7 +178,7 @@ export default function ProdutosPage() {
                 <thead>
                   <tr>
                     {TABLE_HEAD.map(({ head, icon }) => (
-                      <th key={head} className="border-b border-gray-300 p-4">
+                      <th key={head} className="border-b border-gray-300 bg-gray-100 p-2">
                         <div className="flex items-center gap-1">
                           {icon}
                           <Typography
@@ -227,7 +227,7 @@ export default function ProdutosPage() {
                       index
                     ) => {
                       const isLast = index === TABLE_ROWS.length - 1;
-                      const classes = isLast ? "p-4" : "p-4 border-b border-gray-300";
+                      const classes = isLast ? "p-1" : "p-1 border-b border-gray-300";
 
                       return (
                         <tr key={codigo}>
