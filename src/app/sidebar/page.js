@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import {
@@ -24,27 +24,21 @@ import {
     PowerIcon,
 } from "@heroicons/react/24/solid";
 import {
-    HomeIcon, // Para Home
-    UserGroupIcon, // Para Cadastros (Grupo Usuários)
-    UsersIcon, // Para Usuários
-    DocumentIcon, // Para Relatórios
-    CogIcon, // Para Configurações
-    ExclamationCircleIcon, // Para Processos
-    LogoutIcon, // Para Log Out
+    HomeIcon,
+    UserGroupIcon,
+    UsersIcon,
+    DocumentIcon,
+    CogIcon,
+    ExclamationCircleIcon,
+    LogoutIcon,
     ChevronRightIcon,
     ChevronDownIcon,
     Bars3Icon,
-  XMarkIcon,
+    XMarkIcon,
 } from "@heroicons/react/24/outline";
 
 export default function SidebarComponent() {
-    // const [open, setOpen] = React.useState(0);
-
-    // const handleOpen = (value) => {
-    //     setOpen(open === value ? 0 : value);
-    // };
     const [open, setOpen] = React.useState(0);
-    const [openAlert, setOpenAlert] = React.useState(true);
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
     const handleOpen = (value) => {
@@ -56,45 +50,72 @@ export default function SidebarComponent() {
 
     return (
         <>
-            <IconButton variant="text" size="lg" onClick={openDrawer}>
-                {isDrawerOpen ? (
-                    <XMarkIcon className="h-8 w-8 stroke-2" />
-                ) : (
-                    <Bars3Icon className="h-8 w-8 stroke-2" />
-                )}
-            </IconButton>
-            <Drawer open={isDrawerOpen} onClose={closeDrawer}>
+            {/* Icon button to toggle drawer only on mobile */}
+            <div className="md:hidden">
+                <IconButton variant="text" size="lg" onClick={openDrawer}>
+                    {isDrawerOpen ? (
+                        <XMarkIcon className="h-8 w-8 stroke-2" />
+                    ) : (
+                        <Bars3Icon className="h-8 w-8 stroke-2" />
+                    )}
+                </IconButton>
+            </div>
+
+            {/* Drawer for mobile */}
+            <Drawer open={isDrawerOpen} onClose={closeDrawer} className="md:hidden">
                 <Card className="h-[calc(100vh-2rem)] w-full max-w-[17rem] p-4 shadow-xl shadow-blue-gray-900/5">
-                    <div className="mb-2 p-4">
-                        <Typography variant="h5" color="blue-gray">
-                            Unity Sistemas
-                        </Typography>
-                    </div>
-                    <List>
-                        <Accordion
-                            open={open === 1}
-                            icon={
-                                <ChevronDownIcon
-                                    strokeWidth={2.5}
-                                    className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
-                                />
-                            }
-                        >
-                            <Link href="/home" passHref>
-                                <ListItem>
-                                    <ListItemPrefix>
-                                        <HomeIcon className="h-5 w-5" />
-                                    </ListItemPrefix>
-                                    Home
-                                    <ListItemSuffix>
-                                        <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-                                    </ListItemSuffix>
-                                </ListItem>
-                            </Link>
-                            <ListItem className="p-0" selected={open === 1}>
+                    <SidebarContent handleOpen={handleOpen} open={open} />
+                </Card>
+            </Drawer>
+
+            {/* Sidebar for desktop */}
+            <div className="hidden md:block w-[17rem] h-screen fixed top-0 left-0 bg-white shadow-xl p-4">
+                <Card className="h-full">
+                    <SidebarContent handleOpen={handleOpen} open={open} />
+                </Card>
+            </div>
+
+            {/* Content area adjusts based on sidebar visibility */}
+            <div className={`pt-4 pl-0 md:pl-[17rem] transition-all duration-300`}>
+                {/* Conteúdo da página */}
+            </div>
+        </>
+    );
+}
+
+function SidebarContent({ handleOpen, open }) {
+    return (
+        <>
+            <div className="mb-2 p-4">
+                <Typography variant="h5" color="blue-gray">
+                    Unity Sistemas
+                </Typography>
+            </div>
+            <List>
+                <Accordion
+                    open={open === 1}
+                    icon={
+                        <ChevronDownIcon
+                            strokeWidth={2.5}
+                            className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
+                        />
+                    }
+                >
+                    <Link href="/home" passHref>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <HomeIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Home
+                            <ListItemSuffix>
+                                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                            </ListItemSuffix>
+                        </ListItem>
+                    </Link>
+                    <ListItem className="p-0" selected={open === 1}>
                                 <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3">
                                     <ListItemPrefix>
-                                        <UserGroupIcon className="h-5 w-5" />
+                                        <DocumentIcon className="h-5 w-5" />
                                     </ListItemPrefix>
                                     <Typography color="blue-gray" className="mr-auto font-normal">
                                         Cadastros
@@ -138,8 +159,8 @@ export default function SidebarComponent() {
                                     </Link>
                                 </List>
                             </AccordionBody>
-                        </Accordion>
-                        <Accordion
+                            </Accordion>
+                            <Accordion
                             open={open === 2}
                             icon={
                                 <ChevronDownIcon
@@ -197,18 +218,19 @@ export default function SidebarComponent() {
                                 </List>
                             </AccordionBody>
                         </Accordion>
-                        <Link href="/" passHref>
-                            <ListItem>
-                                <ListItemPrefix>
-                                    <PowerIcon className="h-5 w-5" />
-                                </ListItemPrefix>
-                                Log Out
-                            </ListItem>
-                        </Link>
-                    </List>
-                </Card>
-            </Drawer>
+                            <Link href="/" passHref>
+                        <ListItem>
+                            <ListItemPrefix>
+                                <PowerIcon className="h-5 w-5" />
+                            </ListItemPrefix>
+                            Logout
+                            {/* <ListItemSuffix>
+                                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                            </ListItemSuffix> */}
+                        </ListItem>
+                    </Link>
+                {/* Outros accordions e itens */}
+            </List>
         </>
-
     );
 }
