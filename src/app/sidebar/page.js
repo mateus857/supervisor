@@ -197,12 +197,14 @@ function SidebarContent({ handleOpen, open }) {
                             </ListItem>
                             <AccordionBody className="py-1">
                                 <List className="p-0">
+                                <Link href="/parametros/config_geral" passHref>
                                     <ListItem>
                                         <ListItemPrefix>
                                             <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                                         </ListItemPrefix>
                                         Configuração Geral
                                     </ListItem>
+                                    </Link>
                                     <ListItem>
                                         <ListItemPrefix>
                                             <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
