@@ -63,17 +63,17 @@ export default function SidebarComponent() {
 
             {/* Drawer for mobile */}
             <Drawer open={isDrawerOpen} onClose={closeDrawer} className="md:hidden">
-                <Card className="h-[calc(100vh-2rem)] w-full max-w-[17rem] p-4 shadow-xl shadow-blue-gray-900/5">
-                    <SidebarContent handleOpen={handleOpen} open={open} />
-                </Card>
-            </Drawer>
+    <div className="h-full w-[17rem] bg-white p-4 shadow-xl">
+        <SidebarContent handleOpen={handleOpen} open={open} />
+    </div>
+</Drawer>
+
 
             {/* Sidebar for desktop */}
             <div className="hidden md:block w-[17rem] h-screen fixed top-0 left-0 bg-white shadow-xl p-4">
-                <Card className="h-full">
-                    <SidebarContent handleOpen={handleOpen} open={open} />
-                </Card>
-            </div>
+    <SidebarContent handleOpen={handleOpen} open={open} />
+</div>
+
 
             {/* Content area adjusts based on sidebar visibility */}
             <div className={`pt-4 pl-0 md:pl-[17rem] transition-all duration-300`}>
